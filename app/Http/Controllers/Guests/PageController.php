@@ -21,6 +21,7 @@ class PageController extends Controller
 
     public function today_trains()
     {
-        return view('today_trains', ['trains' => Train::all()->whereDate('departureTime', '=', Carbon::today()->toDateString())]);
+        //dd(Train::whereDay('departure_time', '=', date('d'))->get());
+        return view('today_trains', ['trains' => Train::whereDay('departure_time', '=', date('d'))->get()]);
     }
 }
